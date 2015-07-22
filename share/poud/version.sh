@@ -1,0 +1,3 @@
+POUD_VERSION="0.1"
+
+echo ${POUD_VERSION}
