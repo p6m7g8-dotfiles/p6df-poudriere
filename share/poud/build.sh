@@ -214,6 +214,11 @@ shift $(($OPTIND-1))
 [ $f_t -eq 1 ] && where=local
 [ $f_a -eq 1 ] && where=spot
 
+if [ -z "$ports_tree" -o -z "$build" ]; then
+    _poud_msg "must set ports_tree and build"
+    usage
+fi
+
 ## what to build
 ports_file="$tmp/fbsd-poudriere-$build-$(date "+%Y%m%d_%H%M")"
 _poud_build_what $f_a $f_c "$depends_on" "$dir" "$port" $ports_file "$build-$ports_tree"
