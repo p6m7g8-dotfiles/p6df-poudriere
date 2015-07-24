@@ -1,3 +1,7 @@
+# XXX: could read this section from poudriere.conf
+ZPOOL=zfs
+# XXX: end
+
 prefix=/usr/local
 
 repos_dir=/repos

@@ -168,7 +168,7 @@ poud_aws_wait_for_ssh () {
   _poud_msg "$build: Waiting for ssh....."
   local avail=n
   while [ "$avail" != "y" ]; do
-    ssh -N -o ConnectTimeOut=2 $ip 'echo' >/dev/null 2>&1
+    ssh -N -o ConnectTimeOut=2 -o BatchMode=yes $ip 'echo' >/dev/null 2>&1
     case $? in
       0) avail=y ;;
       *) avail=n ;;

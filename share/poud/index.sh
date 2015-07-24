@@ -32,7 +32,7 @@ if [ -z "${PORTSDIR}" ]; then
   exit 0
 fi
 
-while getopts h FLAG; do
+while getopts fhl FLAG; do
     case ${FLAG} in
         f) _poud_fetch_index ;;
         h) usage             ;;
