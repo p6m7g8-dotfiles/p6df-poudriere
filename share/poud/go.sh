@@ -17,7 +17,7 @@ shift $(($OPTIND-1))
 
 port=$1
 
-. ${POUD_LIBDIR}/util.sh
+. ${POUD_SCRIPTDIR}/_util.sh
 
 dir=$(_poud_ip dir $port | head -1)
 cd $PORTSDIR/$dir

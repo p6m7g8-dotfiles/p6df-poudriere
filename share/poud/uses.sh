@@ -20,4 +20,6 @@ shift $(($OPTIND-1))
 str=$1
 pattern=${2:-USE}
 
+. ${POUD_SCRIPTDIR}/_util.sh
+
 (cd $PORTSDIR ; _poud_ip deps $str M | xargs grep $pattern)

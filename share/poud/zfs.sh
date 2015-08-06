@@ -13,8 +13,8 @@ EOF
     exit 1
 }
 
-. ${POUD_LIBDIR}/globals.sh
-. ${POUD_LIBDIR}/util.sh
+. ${POUD_SCRIPTDIR}/_globals.sh
+. ${POUD_SCRIPTDIR}/_util.sh
 
 flag_f=0
 ZPOOL=

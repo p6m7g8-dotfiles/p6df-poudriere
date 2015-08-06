@@ -1,4 +1,4 @@
-. ${POUD_LIBDIR}/build.sh
+. ${POUD_SCRIPTDIR}/_build.sh
 
 for tag in $build_tags; do
   build=$(echo $tag | sed -e 's,-.*,,' -e 's,\.,,g')

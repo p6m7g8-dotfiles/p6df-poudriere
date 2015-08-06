@@ -1,3 +1,3 @@
-. ${POUD_LIBDIR}/build.sh
+. ${POUD_SCRIPTDIR}/_build.sh
 
 poud_build "$@"

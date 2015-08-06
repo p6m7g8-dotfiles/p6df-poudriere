@@ -11,7 +11,7 @@ EOF
     exit 1
 }
 
-. ${POUD_LIBDIR}/util.sh
+. ${POUD_SCRIPTDIR}/_util.sh
 
 while getopts h FLAG; do
     case ${FLAG} in

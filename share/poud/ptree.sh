@@ -75,7 +75,7 @@ poud_ptrees () {
   exit 0
 }
 
-. ${POUD_LIBDIR}/globals.sh
+. ${POUD_SCRIPTDIR}/_globals.sh
 
 while getopts "him" FLAG; do
   case "${FLAG}" in

@@ -3,8 +3,8 @@
 # XXX: depends on aws cli
 # XXX: could use curl and json
 
-. ${POUD_LIBDIR}/globals.sh
-. ${POUD_LIBDIR}/util.sh
+. ${POUD_SCRIPTDIR}/_globals.sh
+. ${POUD_SCRIPTDIR}/_util.sh
 
 poud_aws_run_on_demand () {
   local aws_ami_id=$1
@@ -169,12 +169,14 @@ poud_aws_wait_for_ssh () {
   local avail=n
   while [ "$avail" != "y" ]; do
     ssh -N -o ConnectTimeOut=2 -o BatchMode=yes $ip 'echo' >/dev/null 2>&1
+    echo .
     case $? in
       0) avail=y ;;
       *) avail=n ;;
     esac
     sleep 5
   done
+  _poud_msg "$build: SSH!"
 }
 
 poud_aws_terminate_instances () {

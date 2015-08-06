@@ -54,8 +54,8 @@ poud_jails_update () {
   exit 0
 }
 
-. ${POUD_LIBDIR}/globals.sh
-. ${POUD_LIBDIR}/util.sh
+. ${POUD_SCRIPTDIR}/_globals.sh
+. ${POUD_SCRIPTDIR}/_util.sh
 
 while getopts "cdhu" FLAG; do
   case "${FLAG}" in

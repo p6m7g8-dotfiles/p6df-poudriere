@@ -25,7 +25,7 @@ _poud_make_index () {
   )
 }
 
-. ${POUD_LIBDIR}/globals.sh
+. ${POUD_SCRIPTDIR}/_globals.sh
 
 if [ -z "${PORTSDIR}" ]; then
   echo "must call poud ptree <tree> 1st"

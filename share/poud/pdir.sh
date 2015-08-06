@@ -17,7 +17,7 @@ done
 
 tree=$1
 
-. ${POUD_LIBDIR}/globals.sh
+. ${POUD_SCRIPTDIR}/_globals.sh
 
 if [ -n "$tree" ]; then
     echo PORTSDIR=$poudriere_ports_tree_dir/$tree

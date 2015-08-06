@@ -74,6 +74,7 @@ _poud_ip () {
     extract)     pos=11;;
     patch)       pos=12;;
     fetch)       pos=13;;
+    deps)        pos=0;;
     *)           pos=-1;;
   esac
 

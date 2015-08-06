@@ -173,7 +173,7 @@ _poud_build_what () {
   fi
 }
 
-. ${POUD_LIBDIR}/aws.sh
+. ${POUD_SCRIPTDIR}/_aws.sh
 
 poud_build () {
   local f_a=0

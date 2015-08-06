@@ -1,3 +1,3 @@
-POUD_VERSION="0.1"
+. ${POUD_SCRIPTDIR}/_version.sh
 
 echo ${POUD_VERSION}

@@ -11,7 +11,7 @@ EOF
     exit 1
 }
 
-. ${POUD_LIBDIR}/globals.sh
+. ${POUD_SCRIPTDIR}/_globals.sh
 
 while getopts h FLAG; do
     case ${FLAG} in

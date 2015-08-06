@@ -15,8 +15,8 @@ usage() {
 Usage: poud [-e] [-x] command [options]
 
 Options:
-    -x    -- enable debugging (set -x implies -e)
     -e    -- shit the bed on errors (set -e)
+    -x    -- enable debugging (set -x implies -e)
     -h    -- this help message, use help for a list of commands
 EOF
 
@@ -49,27 +49,25 @@ POUD_PREFIX=${POUD_PATH%\/bin/*}
 POUD_SCRIPTDIR=${POUD_PREFIX}/share/poud
 POUD_LIBDIR=${POUD_PREFIX}/lib/poud
 
-CMD=$1
+CMD=${1##*/}
 shift
 
 POUD_SCRIPTPATH="${POUD_SCRIPTDIR}/${CMD}.sh"
 
 path=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin
 CMD_ENV="${CMD_ENV} POUD_SCRIPTDIR=${POUD_SCRIPTDIR}"
-CMD_ENV="${CMD_ENV} POUD_LIBDIR=${POUD_LIBDIR}"
 CMD_ENV="${CMD_ENV} POUD_PTREE=${POUD_PTREE}"
 CMD_ENV="${CMD_ENV} POUD_BUILD=${POUD_BUILD}"
 CMD_ENV="${CMD_ENV} PORTSDIR=${PORTSDIR}"
 CMD_ENV="${CMD_ENV} PATH=${path}"
 CMD_ENV="${CMD_ENV} SUDO_USER=${SUDO_USER}"
+CMD_ENV="${CMD_ENV} ME=$0"
 
-cmds=$(ls -1 ${POUD_SCRIPTDIR} | xargs | sed -e 's,.sh, ,g' -e 's,|$,,')
-for cmd in $cmds; do
-  if [ ${CMD} = ${cmd} ]; then
+if [ -f "${POUD_SCRIPTPATH}" ]; then
       exec env -i ${CMD_ENV} sh ${SETE} ${SETX} "${POUD_SCRIPTPATH}" "$@"
       exit 0
-  fi
-done
+else
+  echo "Unknown command: ${CMD}"
+  exit 1
+fi
 
-echo "Unknown command: ${CMD}"
-exit 1

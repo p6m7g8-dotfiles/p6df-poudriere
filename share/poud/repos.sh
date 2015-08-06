@@ -11,7 +11,7 @@ EOF
     exit 1
 }
 
-. ${POUD_LIBDIR}/globals.sh
+. ${POUD_SCRIPTDIR}/_globals.sh
 
 while getopts h FLAG; do
     case ${FLAG} in
@@ -40,4 +40,3 @@ sudo chown -R $USER:$USER $repos_freebsd_dir $repos_pgollucci_dir
 )
 
 cp $poud_etc_dir/poudriere.conf $poudriere_conf
-

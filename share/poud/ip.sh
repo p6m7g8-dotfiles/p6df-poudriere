@@ -45,6 +45,6 @@ field=$1
 regex=$2
 modifier=$3
 
-. ${POUD_LIBDIR}/util.sh
+. ${POUD_SCRIPTDIR}/_util.sh
 
 _poud_ip $field $regex $modifier
