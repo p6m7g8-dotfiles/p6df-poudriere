@@ -85,10 +85,15 @@ _poud_ip () {
   local regex=$(echo $regex | sed -e 's,/,\\/,g')
 
   local out
+  local col=2
+  case $modifier in
+    m) col=6 ;;
+  esac
+
   if [ $field = "deps" ]; then
-      out=$(awk -F'|' "\$8 ~ /$regex/ || \$9 ~ /$regex/ || \$11 ~ /$regex/ || \$12 ~ /$regex/ || \$13 ~ /$regex/ { print \$2 }" $index_file)
+      out=$(awk -F'|' "\$8 ~ /$regex/ || \$9 ~ /$regex/ || \$11 ~ /$regex/ || \$12 ~ /$regex/ || \$13 ~ /$regex/ { print \$$col }" $index_file)
   else
-      out=$(awk -F'|' "\$$pos ~ /$regex/ { print \$2 }" $index_file)
+      out=$(awk -F'|' "\$$pos ~ /$regex/ { print \$$col }" $index_file)
   fi
 
   if [ -n "$out" ]; then
